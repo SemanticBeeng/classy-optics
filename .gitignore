@@ -15,6 +15,9 @@ TAGS
 .idea
 .idea/*
 .idea_modules
+project/.boot/
+project/.ivy/
+project/.sbtboot/
 .DS_Store
 .sbtrc
 *.sublime-project
