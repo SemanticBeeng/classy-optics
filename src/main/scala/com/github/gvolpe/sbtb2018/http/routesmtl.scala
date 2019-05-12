@@ -13,7 +13,8 @@ import org.http4s.dsl.Http4sDsl
 
 case class UserRoutesMTL[F[_]: Sync](users: UserAlg[F]) extends Http4sDsl[F] {
 
-  private val httpRoutes: HttpRoutes[F] = HttpRoutes.of[F] {
+  protected val httpRoutes: HttpRoutes[F] = HttpRoutes.of[F] {
+
     case GET -> Root / "users" / username =>
       users.find(username).flatMap {
         case Some(user) => Ok(user.asJson)
